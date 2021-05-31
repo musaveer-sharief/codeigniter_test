@@ -14,6 +14,23 @@
 	
 	<div class="container" style="padding-top:10px;">
 	<div class="row">
+		<div class="col-md-12">
+		<?php 
+			$success = $this->session->userdata('success');
+			if($success !=""){
+		?>
+		<div class="alert alert-success"><?php echo $success; ?></div>
+		<?php } ?>
+		<?php 
+			$failure = $this->session->userdata('failure');
+			if($failure !=""){
+		?>
+		<div class="alert alert-failure"><?php echo $failure; ?></div>
+		<?php } ?>
+		</div>
+		
+	</div>
+	<div class="row">
 		<div class="col-md-8">
 			<div class="row">
 				<div class="col-6"><h3>View Users</h3></div>
@@ -42,8 +59,8 @@
 					<td><?php echo $user['user_id'];?></td>
 					<td><?php echo $user['name'];?></td>
 					<td><?php echo $user['email'];?></td>
-					<td><a href="<?php echo base_url().'index.php/user/edit'.$user['user_id']?>" class="btn btn-primary">Edit</a></td>
-					<td><a href="<?php echo base_url().'index.php/user/delete'.$user['user_id']?>" class="btn btn-danger">Delete</a></td>
+					<td><a href="<?php echo base_url().'index.php/user/edit/'.$user['user_id']?>" class="btn btn-primary">Edit</a></td>
+					<td><a href="<?php echo base_url().'index.php/user/delete/'.$user['user_id']?>" class="btn btn-danger">Delete</a></td>
 				</tr>
 				<?php }} else{?>
 				<tr>
